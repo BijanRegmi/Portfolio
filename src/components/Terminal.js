@@ -13,9 +13,7 @@ function Terminal() {
 	const ipRef = useRef()
 
 	const handleKeyPress = e => {
-		console.log(e)
 		if (e.ctrlKey && e.code === 'keyL'){
-			console.log("Clearing the console")
 			dispatch({cmd: "clear"})
 		}
 	}
@@ -23,12 +21,12 @@ function Terminal() {
 	useEffect(() => {
 		loadTheme()
 		ipRef.current.focus()
+		dispatch({cmd: "help", time: getTime(), workingDirectory: "/"})
 		document.addEventListener("keydown", handleKeyPress)
 
 		return () => {
 			document.removeEventListener("keydown", handleKeyPress)
 		}
-		// dispatch({cmd: "help", time: getTime(), workingDirectory: "/"})
 	}, [])
 
 	return (
