@@ -1,38 +1,126 @@
-.App {
-  text-align: center;
+/*Caution: I am terrible at CSS*/
+:root {
+    --size: 16px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.darkness {
+    --background: black;
+    --foreground: white;
+    --output: white;
+    --border: white;
+    --time: white;
+    --prompt: white;
+    --workingDir: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.brightness {
+    --background: white;
+    --foreground: black;
+    --output: black;
+    --border: black;
+    --time: black;
+    --prompt: black;
+    --workingDir: black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.h4x0r {
+    --background: rgb(14, 11, 11);
+    --foreground: #2f872f;
+    --output: rgb(0, 200, 26);
+    --border: #63f0b3;
+    --time: #6b987c;
+    --prompt: #0a4f06;
+    --workingDir: black;
 }
 
-.App-link {
-  color: #61dafb;
+* {
+    margin: 0;
+    padding: 0;
+    font-size: var(--size);
+    box-sizing: border-box;
+    font-family: monospace;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+html, body, #root {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background);
+}
+
+#root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    color: grey;
+}
+
+.terminal {
+    width: 50%;
+    height: 60%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border: .11em solid var(--border);
+    border-radius: 1em;
+    padding: 0.6em;
+}
+
+.history {
+    width: 100%;
+    overflow-y: hidden;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.hist-item{
+    margin-bottom: 5px;
+}
+
+.time {
+    color: var(--time);
+}
+
+.workingDir {
+    color: rgb(94, 132, 114);
+}
+
+.prompt{
+    color: var(--prompt);
+}
+
+.ip {
+    color: var(--foreground);
+    margin: 0 10px;
+}
+
+.op {
+    color: var(--output);
+}
+
+.command {
+    width: 100%;
+}
+
+.input-form {
+    display: flex;
+}
+
+.stdin {
+    outline: none;
+    color: var(--foreground);
+    border: 0;
+    flex-grow: 1;
+    background-color: var(--primary);
+    margin: 0 10px;
+}
+
+.enter {
+    display: none;
 }
